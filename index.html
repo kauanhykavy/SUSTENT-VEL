@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoAgro | Agricultura & Sustentabilidade</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* --- ESTILOS GERAIS (CSS) --- */
+        :root {
+            --primary-color: #2c5e3b;
+            --secondary-color: #8b5a2b;
+            --accent-color: #a3c9a8;
+            --light-bg: #f4f7f5;
+            --dark-text: #2b2b2b;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light-bg);
+            color: var(--dark-text);
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo h1 {
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(44, 94, 59, 0.7), rgba(44, 94, 59, 0.9)), 
+                        url('https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
+            color: var(--white);
+            text-align: center;
+            padding: 6rem 2rem;
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Container Principal */
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        section {
+            background: var(--white);
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        h2.section-title {
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--accent-color);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Grid de Soluções */
+        .grid-solucoes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 1.5rem;
+        }
+
+        .card {
+            background: var(--light-bg);
+            padding: 1.5rem;
+            border-left: 5px solid var(--secondary-color);
+            border-radius: 4px;
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Seção de Gráficos */
+        .charts-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 30px;
+            margin-top: 1.5rem;
+        }
+
+        .chart-box {
+            background: var(--white);
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+
+        @media (max-width: 500px) {
+            .charts-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        footer {
+            background-color: var(--primary-color);
+            color: var(--white);
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 3rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <div class="logo">
+                <h1>🌱 EcoAgro</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#contexto">O Cenário</a></li>
+                    <li><a href="#dados">Dados</a></li>
+                    <li><a href="#solucoes">Soluções</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="hero">
+        <h2>Cultivando o Futuro com Consciência</h2>
+        <p>A união entre a produção de alimentos e a preservação ambiental é o único caminho para alimentar o mundo sem esgotar o nosso planeta.</p>
+    </div>
+
+    <div class="container">
+
+        <section id="contexto">
+            <h2 class="section-title">O Desafio do Século XXI</h2>
+            <p>A agricultura tradicional transformou a sociedade, permitindo o crescimento populacional global. No entanto, o modelo atual baseado no uso intensivo de defensivos químicos, desmatamento e consumo desenfreado de água chegou ao seu limite ecológico.</p>
+            <br>
+            <p>A <strong>Agricultura Sustentável</strong> surge não como uma alternativa opcional, mas como uma necessidade urgente. Ela propõe métodos de cultivo que respeitam o ecossistema, garantem a saúde do solo a longo prazo, protegem os recursos hídricos e asseguram a viabilidade econômica para os produtores.</p>
+        </section>
+
+        <section id="dados">
+            <h2 class="section-title">Dados e Impactos Ambientais</h2>
+            <p>Os gráficos abaixo ilustram a urgência da mudança e o crescimento positivo de práticas agrícolas responsáveis no cenário global.</p>
+            
+            <div class="charts-container">
+                <div class="chart-box">
+                    <canvas id="graficoImpacto"></canvas>
+                </div>
+                <div class="chart-box">
+                    <canvas id="graficoCrescimento"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <section id="solucoes">
+            <h2 class="section-title">Como Unir Agricultura e Sustentabilidade?</h2>
+            <p>A convergência entre tecnologia, ciência e saberes tradicionais oferece respostas práticas para transformar o campo em um aliado do clima:</p>
+            
+            <div class="grid-solucoes">
+                <div class="card">
+                    <h3>1. Sistemas Agroflorestais</h3>
+                    <p>Consiste na plantação de culturas agrícolas junto com árvores. Isso recupera o solo, aumenta a biodiversidade e cria barreiras naturais contra pragas.</p>
+                </div>
+                <div class="card">
+                    <h3>2. Agricultura de Precisão</h3>
+                    <p>Uso de drones, sensores e inteligência artificial para monitorar as lavouras. Evita o desperdício aplicando água e insumos apenas onde e quando necessário.</p>
+                </div>
+                <div class="card">
+                    <h3>3. Bioinsumos e Manejo Integrado</h3>
+                    <p>Substituição de pesticidas químicos agressivos por defensores biológicos (como fungos e insetos benéficos) e adubação orgânica, mantendo o equilíbrio ecológico.</p>
+                </div>
+                <div class="card">
+                    <h3>4. Rotação de Culturas</h3>
+                    <p>Alternar as espécies plantadas em uma mesma área a cada safra. Isso quebra o ciclo de pragas e repõe os nutrientes naturais do solo sem necessidade de químicos.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 EcoAgro. Desenvolvido para o bem do nosso ecossistema.</p>
+    </footer>
+
+    <script>
+        // Gráfico 1: Destruição/Impacto do Uso da Água Global
+        const ctxImpacto = document.getElementById('graficoImpacto').getContext('2d');
+        new Chart(ctxImpacto, {
+            type: 'doughnut',
+            data: {
+                labels: ['Agricultura e Pecuária', 'Uso Industrial', 'Uso Doméstico'],
+                datasets: [{
+                    label: 'Consumo Global de Água Doce (%)',
+                    data: [70, 20, 10],
+                    backgroundColor: ['#2c5e3b', '#8b5a2b', '#a3c9a8'],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Distribuição do Consumo Global de Água Doce',
+                        font: { size: 16 }
+                    }
+                }
+            }
+        });
+
+        // Gráfico 2: Evolução de Áreas Orgânicas/Sustentáveis (Dados Ilustrativos de Tendência)
+        const ctxCrescimento = document.getElementById('graficoCrescimento').getContext('2d');
+        new Chart(ctxCrescimento, {
+            type: 'line',
+            data: {
+                labels: ['2015', '2018', '2021', '2024', '2026'],
+                datasets: [{
+                    label: 'Adoção de Práticas Sustentáveis (Milhões de Hectares)',
+                    data: [45, 58, 72, 85, 98],
+                    borderColor: '#2c5e3b',
+                    backgroundColor: 'rgba(163, 201, 168, 0.3)',
+                    fill: true,
+                    tension: 0.3
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Crescimento Global da Agricultura Sustentável',
+                        font: { size: 16 }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: false
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
